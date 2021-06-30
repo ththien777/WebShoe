@@ -1,0 +1,71 @@
+﻿@model WebShoe.Models.KhachHang
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+<div class="Register">
+
+    <div class="main-agileits">
+        <div class="form-w3agile">
+            <h2>Register</h2>
+
+            @using (Html.BeginForm())
+            {
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <form>
+                    <div class="key">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        <p><input type="text" name="Username" placeholder="Tên đăng nhập" /></p>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="key">
+                        <i class="fa fa-users" aria-hidden="true"></i>
+                        <p><input type="text" name="TenKH" placeholder="Tên khách hàng" /></p>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="key">
+                        <i class="fa fa-at" aria-hidden="true"></i>
+                        <p><input type="text" name="Email" placeholder="Email" /></p>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="key">
+                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                        <p><input type="text" name="Ngaysinh" placeholder="Ngày sinh" /></p>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="key">
+                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                        <p><input type="text" name="DiaChi" placeholder="Địa chỉ" /></p>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="key">
+                        <i class="fa fa-lock" aria-hidden="true"></i>
+                        <p><input type="password" name="Password" placeholder="Mật khẩu" /></p>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="key">
+                        <i class="fa fa-phone" aria-hidden="true"></i>
+                        <p><input type="text" name="phone" placeholder="Số điện thoại" /></p>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="key">
+                        <i class="fa fa-user" aria-hidden="true"> </i>
+
+                        <p><input type="text" name="gioitinh" placeholder="Giới tính" /> </p>
+
+                        <div class="clearfix"></div>
+                    </div>
+
+                    <p><input type="submit" value="Đăng kí" /></p>
+                </form>
+            }
+            @if (ViewBag.Success != null)
+            {
+            <div class="alert alert-success">@ViewBag.Success</div>
+            }
+            
+        </div>
+    </div>
+</div>

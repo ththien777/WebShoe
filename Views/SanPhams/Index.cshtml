@@ -1,0 +1,57 @@
+﻿
+@model PagedList.IPagedList<WebShoe.Models.SanPham>
+@using PagedList.Mvc;
+    
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+
+<section>
+    <div class="header-bottom-w3ls">
+        <div class="container">
+            <div class="col-md-8 col-sm-8 women-dresses">
+                <div class="women-set1">
+                    <div class="col-md-4 women-grids wp1 animated wow slideInUp" data-wow-delay=".5s">
+                        <div class="product-img">
+                            @foreach (var item in Model)
+                            {
+                                <form action="@Url.Action("AddToCart","GioHang")" method="post">
+                                    <input type="hidden" name="productid" value="@item.MaSP" />
+                                    <div class="menu__content">
+
+                                        <img src="~/images/@item.ImagePath" alt="@item.ImagePath" class="menu__img">
+
+                                        <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+                                        <i class="fa fa-star gray-star" aria-hidden="true"></i><br />
+                                        <h4>   <span class="menu__detail"> @item.TenSP</span><br /></h4>
+
+                                        @Html.ActionLink(@item.TenSP, "Details", new { id = item.MaSP }, new { @class = "myActionlink" })
+                                        <div class="form-w3agile">
+                                            <form action="@Url.Action("Index","Cart")" method="post">
+
+                                                <input type="submit" value="Thêm vào giỏ">
+                                            </form>
+                                        </div>
+                                    </div>
+                                </form>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="pagination">
+        <div id="Page_Count">
+            Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+        </div>
+        @Html.PagedListPager(Model, page => Url.Action("Index",
+            new { page, keyword = Request.QueryString["keyword"] }))
+    </div>
+</section>
