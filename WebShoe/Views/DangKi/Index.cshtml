@@ -1,0 +1,26 @@
+﻿@model WebShoe.Models.KhachHang
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<h2>Index</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    if (ViewBag.Success != null)
+    {
+        <div class="alert alert-success">@ViewBag.Success</div>
+    }
+    <p><input type="text" name="Username" placeholder="Tên đăng nhập" /></p>
+    <p><input type="text" name="TenKH" placeholder="Tên khách hàng" /></p>
+    <p><input type="text" name="Email" placeholder="Email" /></p>
+    <p><input type="text" name="Ngaysinh" placeholder="Ngày sinh" /></p>
+    <p><input type="text" name="DiaChi" placeholder="Địa chỉ" /></p>
+    <p><input type="text" name="Password" placeholder="Mật khẩu" /></p>
+    <p><input type="text" name="phone" placeholder="Số điện thoại" /></p>
+    <p><input type="text" name="gioitinh" placeholder="Giới tính" /></p>
+    <p><input type="submit" value="Đăng kí" /></p>
+}

@@ -1,0 +1,87 @@
+﻿
+@model WebShoe.Models.SanPham
+@using WebShoe.Models
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+
+}
+
+<div class="banner-agile">
+    <div class="container">
+        <h2>WELCOME TO</h2>
+        <h3>MEOMUN <span>SNEAKER</span></h3>
+        <p>"Give a girl the right shoes and she can conquer the world.  " </p>
+        <a href="~/About">Read More</a>
+    </div>
+</div>
+
+<script src="~/js/easyResponsiveTabs.js" type="text/javascript"></script>
+<script type="text/javascript">
+        $(document).ready(function () {
+            $('#horizontalTab').easyResponsiveTabs({
+                type: 'default', //Types: default, vertical, accordion
+                width: 'auto', //auto or any width like 600px
+                fit: true   // 100% fit in a container
+            });
+        });
+</script>
+
+<div class="top-brands">
+    <div class="container">
+        <div class="resp-tabs-container">
+            <section class="home" id="home">
+                <div class="home__container bd-container bd-grid">
+                    <div class="home__data">
+                        <img width="350" height="300" style="left" src="~/images/supremebanner.jpg" />
+                        <font style="left">
+                            <h1 class="home__title">MeoMunShop</h1>
+                            <h2 class="home__subtitle">Bán các thế loại giày<br>bình dân đến cao cấp.</h2>
+                        </font>
+
+                        <div class="form-w3agile">
+
+                            <form action="@Url.Action("Index","Sanphams")" method="post">
+
+                                <input type="submit" value="Xem sản phẩm">
+                            </form>
+                        </div>
+
+                    </div>
+
+                </div>
+            </section>
+
+        </div>
+       
+        <script type="text/javascript">
+                                    $(window).load(function () {
+                                        $("#flexiselDemo1").flexisel({
+                                            visibleItems: 4,
+                                            animationSpeed: 1000,
+                                            autoPlay: false,
+                                            autoPlaySpeed: 3000,
+                                            pauseOnHover: true,
+                                            enableResponsiveBreakpoints: true,
+                                            responsiveBreakpoints: {
+                                                portrait: {
+                                                    changePoint: 480,
+                                                    visibleItems: 1
+                                                },
+                                                landscape: {
+                                                    changePoint: 640,
+                                                    visibleItems: 2
+                                                },
+                                                tablet: {
+                                                    changePoint: 768,
+                                                    visibleItems: 3
+                                                }
+                                            }
+                                        });
+
+                                    });
+        </script>
+        <script type="text/javascript" src="@Url.Content("~/js/jquery.flexisel.js")"></script>
+    </div>
+</div>
+

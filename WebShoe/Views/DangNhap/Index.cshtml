@@ -1,0 +1,45 @@
+﻿@model WebShoe.Models.KhachHang
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+    if (Session["TenKH"] != null)
+    {
+        Response.Redirect("~/Home");
+    }
+}
+<div class="login">
+
+    <div class="main-agileits">
+        <div class="form-w3agile">
+            <h3>Login</h3>
+            @using (Html.BeginForm("Index", "DangNhap", FormMethod.Post))
+            {
+                <form action="Login" method="post">
+                    <div class="key">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        <input type="text" name="Username" placeholder="Username" id="txt_Username">
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="key">
+                        <i class="fa fa-lock" aria-hidden="true"></i>
+                        <input type="password" name="Password" placeholder="Password" id="txt_Password">
+                        <div class="clearfix"></div>
+                    </div>
+                    <input type="submit" value="Login">
+
+                </form>
+                }
+            @if (Session["Message"] != null)
+            {
+                <div id="Failed_Message">@Session["Message"].ToString()</div>
+            }
+        </div>
+        <div class="forg">
+            <a href="#" class="forg-left">Forgot Password</a>
+            <a href="~/Register/Index" class="forg-right">Register</a>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+
+
